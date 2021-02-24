@@ -43,7 +43,10 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = $this->repository->all();
+        return view('user.index', [
+            'users' => $users
+        ]);
     }
 
     /**
@@ -157,17 +160,14 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $deleted = $this->repository->delete($id);
+    {      
+        $request = $this->service->destroy($id);
 
-        if (request()->wantsJson()) {
-
-            return response()->json([
-                'message' => 'User deleted.',
-                'deleted' => $deleted,
-            ]);
-        }
-
-        return redirect()->back()->with('message', 'User deleted.');
+        session()->flash('success',[
+            'success'   => $request['success'],
+            'messages'  => $request['messages']
+        ]);
+        
+        return $this-> index();
     }
 }

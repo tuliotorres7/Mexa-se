@@ -9,8 +9,8 @@
 
 @section('conteudo-view')
     @if(session('success'))
-        <h3>
-        {{    session('success')['messages']        }}</h3>
+        <h3>{{    session('success')['messages']        }}</h3>
+    @endif
     {!! Form::open(['route' => 'user.store', 'method' => 'post','class'=>  'form-padrao'])!!}
         @include('templates.formulario.input',['input' => 'cpf', 'attributes'=>['placeholder' => 'CPF']])
         @include('templates.formulario.input',['input' => 'nome', 'attributes'=>['placeholder' => 'Nome']])
@@ -20,22 +20,36 @@
         @include('templates.formulario.submit',['input' => 'Cadastrar'])
     {!! Form::close()!!}
 
-    <table class="default-table" >
+    <table class="default-table">
         <thead>
-            <td> CPF </td>
-            <td> Nome </td>
-            <td> Email </td>
-            <td> Status </td>
-            <td> Permissão </td>
+            <tr>
+                <td> id </td>
+                <td> CPF </td>
+                <td> Nome </td>
+                <td> Email </td>
+                <td> Instrutor </td>
+                <td> Status </td>
+                <td> Permissão </td>
+            </tr>
         </thead>
         <tbody>
+            @foreach($users as $user)
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{$user -> id}}</id>
+                <td>{{$user -> cpf}}</td>
+                <td>{{$user -> nome}}</td>
+                <td>{{$user -> email}}</td>
+                <td>{{$user -> instrutor}}</td>
+                <td>{{$user -> status}}</td>
+                <td>{{$user -> permission}}</td>
+                <td>
+                    {!!Form::open(['route'=> ['user.destroy',$user->id],'method' => 'DELETE'])!!}
+                    {!!Form::submit('Remover')!!}
+                    {!!Form::close()!!}
+
+                    </td>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 @endsection()
