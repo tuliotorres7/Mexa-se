@@ -22,12 +22,12 @@ class UserService{
         try{
             
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
-            $usuario = $this ->repository->create($data);
+            $usuario = $this->repository->create($data);
             
             return [
             'success'=> true,
             'messages' => "Usuário cadastrado",
-            'data' => $usuario,
+            'data' => $usuario
             ];
 
 
@@ -36,7 +36,7 @@ class UserService{
                 case QueryException::class      : return['success '=>false,'messages' => $e->getMessage()];
                 case ValidatorException::class  : return['success '=>false,'messages' => $e->getMessageBag()];
                 case Exception::class           : return['success '=>false,'messages' => $e->getMessage()];
-                default                         : return[$e->getMessage()];
+                default                         : return['success' => false, 'messages' => get_class($e)];
             }
 
 
@@ -54,7 +54,7 @@ class UserService{
             return [
             'success'=> true,
             'messages' => "Usuário Removido",
-            'data' => null,
+            'data' => null
             ];
 
 

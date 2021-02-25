@@ -62,15 +62,13 @@ class UsersController extends Controller
     {   
         
         $request = $this->service->store($request->all());
-        $usuario = $request['success'] ? $request['data']: NULL;
+        $usuario = $request['success'] ? $request['data']: null;
         session()->flash('success',[
             'success'   => $request['success'],
-            'messages'  => $request['messages'],
+            'messages'  => $request['messages']
         ]);
         
-        return view('user.index', [
-            'usuario'=>$usuario,
-        ]);
+        return redirect()->route('user.index');
     }
 
     /**
@@ -160,7 +158,8 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {      
+    {
+      
         $request = $this->service->destroy($id);
 
         session()->flash('success',[
@@ -168,6 +167,6 @@ class UsersController extends Controller
             'messages'  => $request['messages']
         ]);
         
-        return $this-> index();
+        return redirect()->route('user.index');
     }
 }
