@@ -18,6 +18,8 @@ class UserService{
         $this -> repository = $repository;
         $this -> validator = $validator;
     }
+
+    
     public function store($data){
         try{
             
@@ -38,11 +40,6 @@ class UserService{
                 case Exception::class           : return['success '=>false,'messages' => $e->getMessage()];
                 default                         : return['success' => false, 'messages' => get_class($e)];
             }
-
-
-            return['success'=>false,
-            'messages' => $e->getMessageBag(),
-        ];
         }
     }
     public function update(){}

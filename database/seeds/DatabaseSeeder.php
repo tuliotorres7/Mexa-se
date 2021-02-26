@@ -13,10 +13,10 @@ class DatabaseSeeder extends Seeder
     {
         #aqui compoe o BD
         User::create([
-            'cpf'=> '123456788',
-            'nome'=>'uala',
+            'cpf'=> '1234',
+            'nome'=>'admin',
             'instrutor'=>'',
-            'email'=>'joao2@sistem.com',
+            'email'=>'admin@admin.com',
             'password'=> env('PASSWORD_HASH') ? bcrypt('1234'): '1234',
  ]);
 
