@@ -8,13 +8,13 @@
         </li>
         <li>
             <a href = "{{route('cliente.index')}}">
-            <i class="far fa-list-alt"></i>
+            <i class="far fa-user"></i>
             <h3>Cliente</h3>
             </a>
         </li>
         <li>
-            <a href = "">
-                <i class= ""></i>
+            <a href = "{{'relatorio.application'}}">
+                <i class= "far fa-list-alt"></i>
             <h3>Relatório</h3>
             </a>
         </li>

@@ -37,7 +37,7 @@
             @foreach($users as $user)
             <tr>
                 <td>{{$user -> id}}</id>
-                <td>{{$user -> cpf}}</td>
+                <td>{{$user -> formattedCpf}}</td>
                 <td>{{$user -> nome}}</td>
                 <td>{{$user -> email}}</td>
                 <td>{{$user -> instrutor}}</td>

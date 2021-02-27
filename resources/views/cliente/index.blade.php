@@ -28,14 +28,13 @@
         <tr>
             <td>{{ $clt-> id}}</td>
             <td>{{ $clt-> nome}}</td>
-            <td>{{ $clt-> instrutor->nome}}
+            <td>{{ $clt-> instrutor->nome}}</td>
             <td>
                 {!! Form::open(['route'=> ['cliente.destroy',$clt->id], 'method'=>'delete']) !!}
                 {!! Form::submit("Remover")!!}
-                {!! Form::close()!!}
-                
-            
+                {!! Form::close()!!}           
             </td>
+        </tr>
             @endforeach
     </tbody>
     </table>

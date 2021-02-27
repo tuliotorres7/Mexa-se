@@ -56,6 +56,7 @@ class ClientesController extends Controller
         ]);
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -70,7 +71,6 @@ class ClientesController extends Controller
         
         $request = $this->service->store($request->all());
         $cliente = $request['success'] ? $request['data']: null;
-
         session()->flash('success',[
             'success'   => $request['success'],
             'messages'  => $request['messages']
@@ -78,7 +78,7 @@ class ClientesController extends Controller
         
         return redirect()->route('cliente.index');
     }
-
+    
     /**
      * Display the specified resource.
      *

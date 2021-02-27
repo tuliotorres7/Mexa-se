@@ -44,8 +44,12 @@ class User extends Authenticatable
         $this->attributes['password'] =  env('PASSWORD_HASH') ? bcrypt($value): $value;
     }
 
-    public function getPhoneAttribute(){
-        $phone = $this->Attributes['phone'];
+    public function getFormattedCpfAttribute(){
+        $cpf = $this->attributes['cpf'];
+        return substr($cpf,0,3).".".substr($cpf,3,3).".".substr($cpf,7,3)."-".substr($cpf,-2);
+    }
+    public function getFormattedPhoneAttribute(){
+        $phone = $this->attributes['phone'];
         return "(".substr(0,2).") ".substr($phone,2,4)."-".substr($phone,-4);
     }
 }
