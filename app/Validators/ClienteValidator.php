@@ -20,6 +20,7 @@ class ClienteValidator extends LaravelValidator
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
             'nome' => 'required',
+            'user_id' => 'required|exists:users,id',
         ],
         ValidatorInterface::RULE_UPDATE => [],
     ];

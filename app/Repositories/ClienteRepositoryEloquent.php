@@ -15,6 +15,10 @@ use App\Validators\ClienteValidator;
  */
 class ClienteRepositoryEloquent extends BaseRepository implements ClienteRepository
 {
+
+    public function selectBoxList(string $descricao = 'nome',string $chave = 'id'){
+        return $this->model->pluck($descricao,$chave)->all();
+    }
     /**
      * Specify Model class name
      *

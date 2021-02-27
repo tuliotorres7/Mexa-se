@@ -18,7 +18,10 @@ class CreateClientesTable extends Migration
 		Schema::create('clientes', function(Blueprint $table) {
 			$table->increments('id');
 			$table-> string('nome',30);
-            $table->timestamps();
+			$table-> unsignedInteger('user_id');
+			$table->timestamps();
+			
+			$table->foreign('user_id')->references('id')-> on('users');
 		});
 	}
 

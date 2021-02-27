@@ -12,6 +12,7 @@ use App\Http\Requests\ClienteUpdateRequest;
 use App\Repositories\ClienteRepository;
 use App\Validators\ClienteValidator;
 use App\Services\ClienteService;
+use App\Repositories\UserRepository;
 
 
 /**
@@ -31,8 +32,9 @@ class ClientesController extends Controller
      * @param ClienteRepository $repository
      * @param ClienteValidator $validator
      */
-    public function __construct(ClienteRepository $repository, ClienteValidator $validator, ClienteService $service)
+    public function __construct(ClienteRepository $repository, ClienteValidator $validator, ClienteService $service,UserRepository $userRepository)
     {
+        $this->userRepository = $userRepository;
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->service = $service;
@@ -47,9 +49,10 @@ class ClientesController extends Controller
     {
         
         $clientes = $this->repository->all();
-
+        $user_list = $this->userRepository->selectBoxList();
         return view('cliente.index', [
-            'clientes' => $clientes
+            'clientes' => $clientes,
+            'user_list' => $user_list,
         ]);
     }
 

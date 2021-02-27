@@ -7,22 +7,19 @@ use Prettus\Repository\Contracts\Transformable;
 use Prettus\Repository\Traits\TransformableTrait;
 
 /**
- * Class Cliente.
+ * Class Group.
  *
  * @package namespace App\Entities;
  */
-class Cliente extends Model implements Transformable
+class Group extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['nome','user_id'];
-
-    public function instrutor()
-    {
-        return $this->belongsTo(User::class,'user_id');
-    }
-
-    public $timestamps = true;
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [];
 
 }
