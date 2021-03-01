@@ -13,7 +13,7 @@
             </a>
         </li>
         <li>
-            <a href = "{{'relatorio.application'}}">
+            <a href = "{{'relatorio'}}">
                 <i class= "far fa-list-alt"></i>
             <h3>Relatório</h3>
             </a>

@@ -22,4 +22,5 @@ Route::get('/dashboard', ['as'=> 'user.dashboard','uses' => 'DashboardController
 Route::resource('user','UsersController');
 Route::resource('cliente','ClientesController');
 
-Route::get('relatorio',['as' => 'relatorio.application','uses' => 'RelatorioController@application']);
+Route::resource('/relatorio','RelatorioController');
+Route::post('relatorio','RelatorioController@searchInstrutor')->name('relatorio.search');
