@@ -15,7 +15,6 @@ class DatabaseSeeder extends Seeder
         User::create([
             'cpf'=> '1234',
             'nome'=>'admin',
-            'instrutor'=>'',
             'email'=>'admin@admin.com',
             'password'=> env('PASSWORD_HASH') ? bcrypt('1234'): '1234',
  ]);

@@ -24,16 +24,16 @@ class PresencasController extends Controller
 {
     protected $repository;
     protected $validator;
+    protected $service;
 
-    public function __construct(PresencaRepository $repository, PresencaValidator $validator, UserRepository $userRepository)
+    public function __construct(PresencaRepository $repository, PresencaValidator $validator, PresencaService $service, UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
         $this->repository = $repository;
         $this->validator  = $validator;
+        $this->service =$service;
         
     }
-
-    
     public function index()
     {
         
@@ -48,7 +48,7 @@ class PresencasController extends Controller
     public function store(PresencaCreateRequest $request)
     {
        
-        //$request = $this->service->store($request->all());
+        $request = $this->service->store($request->all());
         dd($request);
         $presenca = $request['success'] ? $request['data']: null;
         session()->flash('success',[

@@ -58,7 +58,7 @@ class ClientesController extends Controller
     {
         
         $request = $this->service->store($request->all());
-        dd($request);
+        
         $cliente = $request['success'] ? $request['data']: null;
         session()->flash('success',[
             'success'   => $request['success'],

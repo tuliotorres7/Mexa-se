@@ -1,13 +1,14 @@
 <?php
 namespace App\Services;
 
-use App\Repositories\ClienteRepository;
-use App\Validators\ClienteValidator;
-
+use App\Repositories\PresencaRepository;
+use App\Validators\PresencaValidator;
+use Carbon\Carbon;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Illuminate\Database\QueryException;
 use Prettus\Validator\Exceptions\ValidatorException;
 use Exception;
+use Auth;
 
 class PresencaService{
     private $repository;
@@ -21,9 +22,14 @@ class PresencaService{
 
     public function store(array $data){
         try{
-            
+            $mytime = Carbon::now();
+            $mytime->toDateTimeString();
+            $data['data'] = $mytime;
+            $user = Auth::user();
+            $data['user_id'] = $user->getId();
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $presenca = $this->repository->create($data);
+
 
 
             return [

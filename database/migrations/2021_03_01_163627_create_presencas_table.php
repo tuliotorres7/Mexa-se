@@ -17,7 +17,7 @@ class CreatePresencasTable extends Migration
 	{
 		Schema::create('presencas', function(Blueprint $table) {
 			$table->increments('id');
-			$table->date('data');
+			$table->dateTime('data');
 			$table-> unsignedInteger('user_id');
 			$table-> unsignedInteger('cliente_id');
 			$table->timestamps();
