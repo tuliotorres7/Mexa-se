@@ -6,15 +6,20 @@
 @endif
 
 
-<form action="{{route('relatorio.search')}}" method="POST" class="form-padrao">
+<form  method="POST" action="{{route('relatorio.search')}}" class="form-padrao">
 {!!csrf_field()!!}
-    <select name="type">
+<label class>
+<span>Instrutor</span>
+    <select name="user_id">
     <option value="">Instrutor</option>
     @foreach( $user_list as $key => $ul)
     <option value="{{$key}}">{{$ul}}</option>
     @endforeach
     </select>
-<button type="submit" class="btn-primary">Pesquisar</button>
+</label>
+<label class="submit">
+    <input type="submit" value="Pesquisar">
+</label>
 </form>
 
 

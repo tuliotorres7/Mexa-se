@@ -7,67 +7,58 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Prettus\Validator\Contracts\ValidatorInterface;
 use Prettus\Validator\Exceptions\ValidatorException;
-use App\Http\Requests\ClienteCreateRequest;
-use App\Http\Requests\ClienteUpdateRequest;
-use App\Repositories\ClienteRepository;
-use App\Validators\ClienteValidator;
-use App\Services\ClienteService;
+use App\Http\Requests\PresencaCreateRequest;
+use App\Http\Requests\PresencaUpdateRequest;
+use App\Validators\PresencaValidator;
+
 use App\Repositories\UserRepository;
+use App\Services\PresencaService;
+use App\Repositories\PresencaRepository;
 
-
-
-
-class ClientesController extends Controller
+/**
+ * Class PresencasController.
+ *
+ * @package namespace App\Http\Controllers;
+ */
+class PresencasController extends Controller
 {
-   
     protected $repository;
     protected $validator;
-    protected $service;
 
-    public function __construct(ClienteRepository $repository, ClienteValidator $validator, ClienteService $service,UserRepository $userRepository)
+    public function __construct(PresencaRepository $repository, PresencaValidator $validator, UserRepository $userRepository)
     {
         $this->userRepository = $userRepository;
         $this->repository = $repository;
         $this->validator  = $validator;
-        $this->service = $service;
+        
     }
 
     
     public function index()
     {
         
-        $clientes = $this->repository->all();
+        $presenca = $this->repository->all();
         $user_list = $this->userRepository->selectBoxList();
-        return view('cliente.index', [
-            'clientes' => $clientes,
+        return view('presenca.index', [
+            'presencas' => $presenca,
             'user_list' => $user_list,
         ]);
     }
 
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ClienteCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
-    public function store(ClienteCreateRequest $request)
+    public function store(PresencaCreateRequest $request)
     {
-        
-        $request = $this->service->store($request->all());
+       
+        //$request = $this->service->store($request->all());
         dd($request);
-        $cliente = $request['success'] ? $request['data']: null;
+        $presenca = $request['success'] ? $request['data']: null;
         session()->flash('success',[
             'success'   => $request['success'],
             'messages'  => $request['messages']
         ]);
         
-        return redirect()->route('cliente.index');
+        return redirect()->route('presenca.index');
     }
-    
+
     /**
      * Display the specified resource.
      *
@@ -77,16 +68,16 @@ class ClientesController extends Controller
      */
     public function show($id)
     {
-        $cliente = $this->repository->find($id);
+        $presenca = $this->repository->find($id);
 
         if (request()->wantsJson()) {
 
             return response()->json([
-                'data' => $cliente,
+                'data' => $presenca,
             ]);
         }
 
-        return view('clientes.show', compact('cliente'));
+        return view('presencas.show', compact('presenca'));
     }
 
     /**
@@ -98,32 +89,32 @@ class ClientesController extends Controller
      */
     public function edit($id)
     {
-        $cliente = $this->repository->find($id);
+        $presenca = $this->repository->find($id);
 
-        return view('clientes.edit', compact('cliente'));
+        return view('presencas.edit', compact('presenca'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  ClienteUpdateRequest $request
+     * @param  PresencaUpdateRequest $request
      * @param  string            $id
      *
      * @return Response
      *
      * @throws \Prettus\Validator\Exceptions\ValidatorException
      */
-    public function update(ClienteUpdateRequest $request, $id)
+    public function update(PresencaUpdateRequest $request, $id)
     {
         try {
 
             $this->validator->with($request->all())->passesOrFail(ValidatorInterface::RULE_UPDATE);
 
-            $cliente = $this->repository->update($request->all(), $id);
+            $presenca = $this->repository->update($request->all(), $id);
 
             $response = [
-                'message' => 'Cliente updated.',
-                'data'    => $cliente->toArray(),
+                'message' => 'Presenca updated.',
+                'data'    => $presenca->toArray(),
             ];
 
             if ($request->wantsJson()) {
@@ -161,11 +152,11 @@ class ClientesController extends Controller
         if (request()->wantsJson()) {
 
             return response()->json([
-                'message' => 'Cliente deleted.',
+                'message' => 'Presenca deleted.',
                 'deleted' => $deleted,
             ]);
         }
 
-        return redirect()->back()->with('message', 'Cliente deleted.');
+        return redirect()->back()->with('message', 'Presenca deleted.');
     }
 }

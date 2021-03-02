@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
 			//people data
 			$table -> char('cpf',11)->unique()->nullable();
 			$table -> string('nome',30);
-			$table -> char('instrutor',20)->nullable();
 
 			//authentication
 			$table -> string('email',80)->unique();

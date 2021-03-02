@@ -18,5 +18,11 @@
             <h3>Relatório</h3>
             </a>
         </li>
+        <li>
+            <a href = "{{route('presenca.index')}}">
+                <i class= "fas fa-list-alt"></i>
+            <h3>Presença</h3>
+            </a>
+        </li>
     <ul>
 </nav>

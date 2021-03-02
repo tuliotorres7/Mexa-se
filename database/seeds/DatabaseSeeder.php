@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        #aqui compoe o BD
+        
         User::create([
             'cpf'=> '1234',
             'nome'=>'admin',

@@ -20,7 +20,7 @@ class User extends Authenticatable
     
      //id?
     protected $fillable = [
-        'cpf','nome','instrutor','email', 'password','status','permission'];
+        'cpf','nome','email', 'password','status','permission'];
 
     /**
      * The attributes that should be hidden for arrays.

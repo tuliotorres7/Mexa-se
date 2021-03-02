@@ -90,30 +90,18 @@ class RelatorioController extends Controller
         return redirect()->route('Relatorio.relatorio');
     }
 
-    public function relatorio(){
-        $clientes = auth()->user()
-                                ->clientes()
-                                ->with(['instrutor'])
-                                ->pagination($this->totalPage);
-            //$types = $cliente->type();
-            dd($clientes);
-            return view('Relatorio.relatorio', [
-                'clientes' => $clientes,
-                'user_list' => $user_list,
-            ]);
-    }
 
     public function searchInstrutor(Request $request, Cliente $relatorio){
         $user_list = $this->userRepository->selectBoxList();       
         $dataForm = $request->all();
-        $posts = $this->repository->findByField('user_id',$dataForm['type']);
-        $dataForm = $request->all();
+        $posts = $this->repository->findByField('user_id',$dataForm['user_id']);
+
         //dd($post);
         //$relatorio->search($dataForm, 2);
         //$relatorios = $relatorio;
         
         return view('Relatorio.relatorio', [
-            'posta'=> $posts,
+            'clientes'=> $posts,
             'user_list' => $user_list,
         ]);
     }
