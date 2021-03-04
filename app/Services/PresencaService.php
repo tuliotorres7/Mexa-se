@@ -17,34 +17,56 @@ class PresencaService{
     public function __construct(PresencaRepository $repository,PresencaValidator $validator){
         $this->repository =$repository;
         $this->validator = $validator;
-
     }
-
+    
     public function store(array $data){
         try{
             $mytime = Carbon::now();
             $mytime->toDateTimeString();
-            $data['data'] = $mytime;
+            //$data['data'] = date('d-m-Y', strtotime($mytime));
             $user = Auth::user();
+            //dd($data);
             $data['user_id'] = $user->getId();
+            $data['data'] = $mytime;
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $presenca = $this->repository->create($data);
-
-
 
             return [
             'success'=> true,
             'messages' => "Presença cadastrada",
             'data' => $presenca,
             ];
-
-
         }catch(Exception $e){
             switch(get_class($e)){
                 case QueryException::class      : return['success '=>false,'messages' => $e->getMessage()];
                 case ValidatorException::class  : return['success '=>false,'messages' => $e->getMessageBag()];
                 case Exception::class           : return['success '=>false,'messages' => $e->getMessage()];
                 default                         : return['success' => false, 'messages' => get_class($e)];
+            }
+        }
+    }
+        public function store2(array $data){
+            try{
+                $mytime = Carbon::now();
+                $mytime->toDateTimeString();
+                $data['data'] = $mytime;
+                $user = Auth::user();
+                $data['user_id'] = $user->getId();
+                $data['data'] = $mytime;
+                $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
+                $presenca = $this->repository->create($data);
+    
+                return [
+                'success'=> true,
+                'messages' => "Presença cadastrada",
+                'data' => $presenca,
+                ];
+            }catch(Exception $e){
+                switch(get_class($e)){
+                    case QueryException::class      : return['success '=>false,'messages' => $e->getMessage()];
+                    case ValidatorException::class  : return['success '=>false,'messages' => $e->getMessageBag()];
+                    case Exception::class           : return['success '=>false,'messages' => $e->getMessage()];
+                    default                         : return['success' => false, 'messages' => get_class($e)];
             }
         }
     }

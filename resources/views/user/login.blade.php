@@ -12,7 +12,7 @@
 
         <section id="conteudo-view" class="login">
             <h1> Mexa-se</h1>
-            <h3> Investindo no bem estar das pessoas</h3>
+            <h3> Esporte do seu Jeito !!!</h3>
 
             {!! Form::open(['route' => 'user.login','method'=>'post'])  !!}
             

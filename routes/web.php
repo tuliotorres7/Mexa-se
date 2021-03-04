@@ -25,4 +25,8 @@ Route::resource('cliente','ClientesController');
 Route::resource('/relatorio','RelatorioController');
 Route::post('relatorio','RelatorioController@searchInstrutor')->name('relatorio.search');
 
-Route::resource('presenca','Presencas Controller');
+Route::resource('/presenca','PresencasController');
+
+Route::resource('/relatorioPresenca','RelatorioPresencaController');
+Route::post('relatorioPresenca', 'RelatorioPresencaController@searchPresenca')->name('relatorioPresenca.search');
+

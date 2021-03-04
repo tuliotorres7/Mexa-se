@@ -20,6 +20,7 @@ class CreatePresencasTable extends Migration
 			$table->dateTime('data');
 			$table-> unsignedInteger('user_id');
 			$table-> unsignedInteger('cliente_id');
+			$table-> boolean('abertura');
 			$table->timestamps();
 			
 			$table->foreign('user_id')->references('id')-> on('users');

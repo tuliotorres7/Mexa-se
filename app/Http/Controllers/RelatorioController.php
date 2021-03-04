@@ -61,22 +61,13 @@ class RelatorioController extends Controller
         $clientes = $this->repository->all();
         $user_list = $this->userRepository->selectBoxList();
         $posts = null;
-        return view('Relatorio.relatorio', [
+        return view('relatorio.relatorio', [
             'clientes' => $clientes,
             'user_list' => $user_list,
            
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  ClienteCreateRequest $request
-     *
-     * @return \Illuminate\Http\Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function store(ClienteCreateRequest $request)
     {
         $request = $this->service->store($request->all());
@@ -87,7 +78,7 @@ class RelatorioController extends Controller
             'messages'  => $request['messages']
         ]);
         
-        return redirect()->route('Relatorio.relatorio');
+        return redirect()->route('relatorio.relatorio');
     }
 
 
@@ -95,25 +86,13 @@ class RelatorioController extends Controller
         $user_list = $this->userRepository->selectBoxList();       
         $dataForm = $request->all();
         $posts = $this->repository->findByField('user_id',$dataForm['user_id']);
-
         //dd($post);
-        //$relatorio->search($dataForm, 2);
-        //$relatorios = $relatorio;
-        
-        return view('Relatorio.relatorio', [
+        return view('relatorio.relatorio', [
             'clientes'=> $posts,
             'user_list' => $user_list,
         ]);
     }
     
-    
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $cliente = $this->repository->find($id);
@@ -128,13 +107,6 @@ class RelatorioController extends Controller
         return view('clientes.show', compact('cliente'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $cliente = $this->repository->find($id);
@@ -142,16 +114,6 @@ class RelatorioController extends Controller
         return view('clientes.edit', compact('cliente'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  ClienteUpdateRequest $request
-     * @param  string            $id
-     *
-     * @return Response
-     *
-     * @throws \Prettus\Validator\Exceptions\ValidatorException
-     */
     public function update(ClienteUpdateRequest $request, $id)
     {
         try {

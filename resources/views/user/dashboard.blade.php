@@ -8,5 +8,5 @@
 
 
 @section('conteudo-view')
-dashhhhhh
+
 @endsection()

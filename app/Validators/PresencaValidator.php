@@ -23,6 +23,7 @@ class PresencaValidator extends LaravelValidator
             'user_id' => 'required|exists:users,id',
 
             'cliente_id' => 'required|exists:clientes,id',
+            'abertura'=> 'required',
         ],
         ValidatorInterface::RULE_UPDATE => [],
     ];

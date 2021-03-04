@@ -24,5 +24,12 @@
             <h3>Presença</h3>
             </a>
         </li>
+
+        <li>
+            <a href = "{{'relatorioPresenca'}}">
+                <i class= "fas fa-list-alt"></i>
+            <h3>RelaPresença</h3>
+            </a>
+        </li>       
     <ul>
 </nav>
