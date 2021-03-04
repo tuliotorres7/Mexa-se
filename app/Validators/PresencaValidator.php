@@ -20,6 +20,7 @@ class PresencaValidator extends LaravelValidator
     protected $rules = [
         ValidatorInterface::RULE_CREATE => [
             'data' => 'required',
+            
             'user_id' => 'required|exists:users,id',
 
             'cliente_id' => 'required|exists:clientes,id',

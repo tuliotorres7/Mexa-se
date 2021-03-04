@@ -22,17 +22,26 @@
         <th>#</th>
         <th>Nome do Cliente</th>
         <th>Instrutor</th>
-        <th>Opções</th>
+        <th>Status</th>
     </tr>
 
 </thead>
+    
+</thead>
     <tbody>
+        @if($presencas)
+        @foreach($presencas as $prc)
         <tr>
-            <td>
-                     
-            </td>
+            <td>{{ $prc->id}}</td>
+            <td>{{ $prc->cliente->nome}}</td>
+            <td>{{ $prc->instrutor->nome}}</td>
+
+            <td>{{ $prc->abertura}}</td>
         </tr>
+        @endforeach
+        @endif
     </tbody>
+    </table>
     </table>
 
 @endsection

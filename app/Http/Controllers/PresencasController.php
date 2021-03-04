@@ -48,6 +48,7 @@ class PresencasController extends Controller
     public function store(PresencaCreateRequest $request)
     {
         $request = $this->service->store($request->all());
+        //dd($request);
         $presenca = $request['success'] ? $request['data']: null;
         session()->flash('success',[
             'success'   => $request['success'],

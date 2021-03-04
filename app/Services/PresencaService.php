@@ -22,14 +22,19 @@ class PresencaService{
     public function store(array $data){
         try{
             $mytime = Carbon::now();
-            $mytime->toDateTimeString();
-            //$data['data'] = date('d-m-Y', strtotime($mytime));
+            $data['data'] = $mytime->format("Y-m-d");
+            $mytime = Carbon::now();
+            //dd($mytime->format("Y-m-d H:m:s"));
+            $mytime->format("Y-m-d H:m:s");
+            $data['dataHora'] = $mytime;
             $user = Auth::user();
-            //dd($data);
+
             $data['user_id'] = $user->getId();
-            $data['data'] = $mytime;
+            
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $presenca = $this->repository->create($data);
+            
+            //dd($presenca);
 
             return [
             'success'=> true,

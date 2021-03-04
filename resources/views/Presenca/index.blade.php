@@ -9,7 +9,7 @@
         @include('templates.formulario.input',['input' => 'cliente_id', 'attributes'=>['placeholder' => 'ClienteID']])
         @include('templates.formulario.checkbox', ['label' => 'Radio'])
         
-        @include('templates.formulario.submit',['input' => 'Cadastrar'])
+        @include('templates.formulario.submit',['input' => 'Assinar presença'])
 {!! Form::close()!!}
 
 

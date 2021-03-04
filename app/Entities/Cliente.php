@@ -24,5 +24,4 @@ class Cliente extends Model implements Transformable
 
     public $timestamps = true;
 
-
 }

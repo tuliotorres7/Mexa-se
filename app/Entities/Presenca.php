@@ -20,7 +20,7 @@ class Presenca extends Model implements Transformable
      *
      * @var array
      */
-    protected $fillable = ['data','user_id','cliente_id'];
+    protected $fillable = ['data','dataHora','user_id','cliente_id','abertura'];
 
     public function instrutor()
     {

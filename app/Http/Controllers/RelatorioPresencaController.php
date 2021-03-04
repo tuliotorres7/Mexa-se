@@ -49,6 +49,7 @@ class RelatorioPresencaController extends Controller
     {
         $presencas = $this->repository->all();
         //$user_list = $this->userRepository->selectBoxList();
+        $presencas = null;
         $posts = null;
         return view('relatorio.presenca', [
             'presencas' => $presencas,           
@@ -74,9 +75,8 @@ class RelatorioPresencaController extends Controller
         $dataForm = $request->all();
         $user = Auth::user();
         $dataForm['user_id'] = $user->getId();
-        dd($dataForm);
         $posts = $this->repository->findWhere(['data'=>$dataForm['data'],'user_id'=>$dataForm['user_id']]);
-        dd($posts);
+        //dd($posts);
         return view('relatorio.presenca', [
             'presencas'=> $posts,
         ]);
