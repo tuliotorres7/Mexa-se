@@ -25,6 +25,24 @@ div.background{
     background-image:url(../assets/images/logo1.png);
     background-size: 100%;
 }
+
+.abertura-icon{
+    position:relative;
+    border-radius: 50%;
+    background-color: #1cb5e7;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+.encerramento-icon{
+    position:relative;
+    border-radius: 50%;
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+
 section#conteudo-view{
     position: absolute;
     right: 0;       

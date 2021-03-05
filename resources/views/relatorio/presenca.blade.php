@@ -35,8 +35,21 @@
             <td>{{ $prc->id}}</td>
             <td>{{ $prc->cliente->nome}}</td>
             <td>{{ $prc->instrutor->nome}}</td>
+            
+            <td>
+            @switch($prc->abertura)
+    @case(1)
+    <span class="abertura-icon"></span>
+        @break
 
-            <td>{{ $prc->abertura}}</td>
+    @case(0)
+    <span class="encerramento-icon"></span>
+        @break
+ 
+    @default
+        Erro
+@endswitch
+    </td>
         </tr>
         @endforeach
         @endif
