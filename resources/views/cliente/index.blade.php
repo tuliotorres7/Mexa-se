@@ -14,13 +14,36 @@
         @include('templates.formulario.select',['label' => 'Instrutor', 'select' =>'user_id', 'data'=> $user_list ?? '' , 'attributes'=>['placeholder' => 'Instrutor']])
         </div>
         </div>
-        <div class="row">
+        <div class="row">        
+<div class="col">
+        @include('templates.formulario.input',['input' => 'Telefone', 'attributes'=>['placeholder' => 'Telefone']])
+        </div>  
+<div class="col">
+@include('templates.formulario.input',['input' => 'Telefone', 'attributes'=>['placeholder' => 'Telefone']])
+        </div>
+        </div>
+        <div class="row">        
+<div class="col">
+        @include('templates.formulario.input',['input' => 'Data de Inicio', 'attributes'=>['placeholder' => 'Data de Inicio']])
+        </div>  
+<div class="col">
+@include('templates.formulario.input',['input' => 'Dias de Aula', 'attributes'=>['placeholder' => 'Dias da Aula']])
+        </div>
+        </div>
+        <div class="row">        
+<div class="col">
+        @include('templates.formulario.input',['input' => 'Horario', 'attributes'=>['placeholder' => 'Telefone']])
+        </div>
+        <div class="col">
         @include('templates.formulario.submit',['input' => 'Cadastrar'])
 </div>
+        
+        
         {!! Form::close()!!}
 
 
-
+<div class="row">
+<div class=table-responsive-xl>
 <table class="table table-hover">
 <thead>
     <tr>
@@ -46,4 +69,6 @@
             @endforeach
     </tbody>
     </table>
+</div>
+</div>
 @endsection

@@ -20,6 +20,7 @@
 <div class="col">
     @include('templates.formulario.input',['input' => 'nome', 'attributes'=>['placeholder' => 'Nome']])
 </div>
+</div>
 </row>
 <div class="row">  
     <div class="col">
@@ -28,11 +29,17 @@
 <div class="col">
         @include('templates.formulario.password',['input' => 'password', 'attributes'=>['placeholder' => 'Senha']])
 </div></div>
-        <div class="row">        
+        <div class="row">    
+        <div class="col">
+    @include('templates.formulario.input',['input' => 'CREF', 'attributes'=>['placeholder' => 'CREF']])
+    </div>
+    <div class="col">   
         @include('templates.formulario.submit',['input' => 'Cadastrar'])
 </div>
+</div>
         {!! Form::close()!!}
-
+<div class="row">
+<div class=table-responsive-xl>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -63,4 +70,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
+</div>
 @endsection()
