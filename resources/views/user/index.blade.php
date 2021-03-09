@@ -11,16 +11,29 @@
     @if(session('success'))
         <h3>{{ session('success')['messages'] }}</h3>
     @endif
-    
+ 
     {!! Form::open(['route' => 'user.store', 'method' => 'post','class'=>  'form-padrao'])!!}
-        @include('templates.formulario.input',['input' => 'cpf', 'attributes'=>['placeholder' => 'CPF']])
-        @include('templates.formulario.input',['input' => 'nome', 'attributes'=>['placeholder' => 'Nome']])
-        @include('templates.formulario.input',['input' => 'email', 'attributes'=>['placeholder' => 'E-mail']])
+    <div class="row">        
+<div class="col">
+    @include('templates.formulario.input',['input' => 'cpf', 'attributes'=>['placeholder' => 'CPF']])
+</div>
+<div class="col">
+    @include('templates.formulario.input',['input' => 'nome', 'attributes'=>['placeholder' => 'Nome']])
+</div>
+</row>
+<div class="row">  
+    <div class="col">
+    @include('templates.formulario.input',['input' => 'email', 'attributes'=>['placeholder' => 'E-mail']])
+</div>
+<div class="col">
         @include('templates.formulario.password',['input' => 'password', 'attributes'=>['placeholder' => 'Senha']])
+</div></div>
+        <div class="row">        
         @include('templates.formulario.submit',['input' => 'Cadastrar'])
-    {!! Form::close()!!}
+</div>
+        {!! Form::close()!!}
 
-    <table class="default-table">
+    <table class="table table-hover">
         <thead>
             <tr>
                 <td> id </td>

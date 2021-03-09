@@ -6,29 +6,42 @@
 @endif
 <form  method="POST" action="{{route('relatorioPresenca.search')}}" class="form-padrao">
 {!!csrf_field()!!}
+<div class="row">        
+<div class="col">
 <label class>
 <span>Relatorio Presenca</span>
     <input type="date" name="data">
 </label>
+</div>
+<div class="col">
 <label class="submit">
     <input type="submit" value="Pesquisar">
 </label>
+</div>
 </form>
 
-
-<table class="default-table">
+<div class="row">
+<div class=table-responsive-xl>
+<table class="table table-hover">
 <thead>
     <tr>
         <th>#</th>
         <th>Nome do Cliente</th>
         <th>Instrutor</th>
         <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
+        <th>Status</th>
     </tr>
 
 </thead>
-    
-</thead>
-    <tbody>
+<tbody>
         @if($presencas)
         @foreach($presencas as $prc)
         <tr>
@@ -39,22 +52,15 @@
             <td>
             @switch($prc->abertura)
     @case(1)
-    <span class="abertura-icon"></span>
-        @break
-
+    <span class="abertura-icon"></span>@break
     @case(0)
-    <span class="encerramento-icon"></span>
-        @break
- 
-    @default
-        Erro
+    <span class="encerramento-icon"></span>@break
 @endswitch
     </td>
         </tr>
         @endforeach
         @endif
-    </tbody>
-    </table>
-    </table>
-
+    </tbody></table>
+</div>
+</div>
 @endsection

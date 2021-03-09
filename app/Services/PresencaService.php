@@ -21,6 +21,7 @@ class PresencaService{
     
     public function store(array $data){
         try{
+            dd($data);
             $mytime = Carbon::now();
             $data['data'] = $mytime->format("Y-m-d");
             $mytime = Carbon::now();

@@ -1,35 +1,38 @@
-<nav id="principal">
-    <ul>
-        <li>
-            <a href = "{{route('user.index')}}" >
-                <i class="fas fa-user"></i>
-            <h3>Instrutor</h3>
-            </a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mexa-se</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{route('user.index')}}">Instrutor</a>
         </li>
-        <li>
-            <a href = "{{route('cliente.index')}}">
-            <i class="far fa-user"></i>
-            <h3>Cliente</h3>
-            </a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('cliente.index')}}">Cliente</a>
         </li>
-        <li>
-            <a href = "{{'relatorio'}}">
-                <i class= "far fa-list-alt"></i>
-            <h3>Relatório</h3>
-            </a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{'relatorio'}}">Relatorio</a>
         </li>
-        <li>
-            <a href = "{{route('presenca.index')}}">
-                <i class= "fas fa-list-alt"></i>
-            <h3>Presença</h3>
-            </a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('presenca.index')}}">Presença</a>
         </li>
 
-        <li>
-            <a href = "{{'relatorioPresenca'}}">
-                <i class= "fas fa-list-alt"></i>
-            <h3>RelaPresença</h3>
-            </a>
-        </li>       
-    <ul>
+        <li class="nav-item">
+          <a class="nav-link" href="{{'relatorioPresenca'}}">Relatorio de Presença</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Dropdown link
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>

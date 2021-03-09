@@ -22,8 +22,7 @@
 </label>
 </form>
 
-
-<table class="default-table">
+<table class="table table-hover">
 <thead>
     <tr>
         <th>#</th>

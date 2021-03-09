@@ -76,7 +76,8 @@ class RelatorioPresencaController extends Controller
         $user = Auth::user();
         $dataForm['user_id'] = $user->getId();
         $posts = $this->repository->findWhere(['data'=>$dataForm['data'],'user_id'=>$dataForm['user_id']]);
-        //dd($posts);
+
+        //dd(Auth::guard());
         return view('relatorio.presenca', [
             'presencas'=> $posts,
         ]);
