@@ -20,7 +20,7 @@ class User extends Authenticatable
     
      //id?
     protected $fillable = [
-        'cpf','nome','email', 'password','status','permission'];
+        'cpf','nome','email','telefone', 'password','status','permission'];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -52,9 +52,9 @@ class User extends Authenticatable
         $cpf = $this->attributes['cpf'];
         return substr($cpf,0,3).".".substr($cpf,3,3).".".substr($cpf,7,3)."-".substr($cpf,-2);
     }
-    public function getFormattedPhoneAttribute(){
-        $phone = $this->attributes['phone'];
-        return "(".substr(0,2).") ".substr($phone,2,4)."-".substr($phone,-4);
+    public function getFormattedTelefoneAttribute(){
+        $telefone = $this->attributes['telefone'];
+        return "(".substr(0,2).") ".substr($telefone,2,4)."-".substr($telefone,-4);
     }
 }
 

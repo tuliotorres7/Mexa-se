@@ -36,7 +36,7 @@ class DashboardController extends Controller
             else{
                 $user = $this->repository->findWhere(['email' => $request->get('username')])->first();
                 if(!$user)
-                    throw new Exception("Email Invalida");
+                    throw new Exception("Email Invalido");
 
                 if($user->password != $request->get('password'))
                     throw new Exception("Senha Invalida");
