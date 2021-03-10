@@ -18,7 +18,7 @@ class CreatePresencasTable extends Migration
 		Schema::create('presencas', function(Blueprint $table) {
 			$table->increments('id');
 			$table->date('data');
-			$table->dateTime('dataHora');
+			$table->dateTime('dataHora',$precision = 0);
 			$table-> unsignedInteger('user_id');
 			$table-> unsignedInteger('cliente_id');
 			$table-> boolean('abertura');

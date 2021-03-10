@@ -21,12 +21,11 @@ class PresencaService{
     
     public function store(array $data){
         try{
-            dd($data);
             $mytime = Carbon::now();
             $data['data'] = $mytime->format("Y-m-d");
             $mytime = Carbon::now();
             //dd($mytime->format("Y-m-d H:m:s"));
-            $mytime->format("Y-m-d H:m:s");
+            $mytime->format("Y-m-d H:m");/////////////
             $data['dataHora'] = $mytime;
             $user = Auth::user();
 
@@ -53,6 +52,7 @@ class PresencaService{
     }
         public function store2(array $data){
             try{
+                dd($data);
                 $mytime = Carbon::now();
                 $mytime->toDateTimeString();
                 $data['data'] = $mytime;

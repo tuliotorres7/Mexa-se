@@ -15,7 +15,7 @@ class Cliente extends Model implements Transformable
 {
     use TransformableTrait;
 
-    protected $fillable = ['nome','user_id'];
+    protected $fillable = ['nome','telefone','endereco','dataInicio','obs','user_id'];
 
     public function instrutor()
     {

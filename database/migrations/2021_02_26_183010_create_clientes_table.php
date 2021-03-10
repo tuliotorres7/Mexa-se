@@ -19,6 +19,10 @@ class CreateClientesTable extends Migration
 			$table->increments('id');
 			$table-> string('nome',30);
 			$table-> unsignedInteger('user_id');
+			$table-> string('telefone',14)->nullable();
+			$table-> string('endereco',50)->nullable();
+			$table-> date('dataInicio')->nullable();
+			$table-> string('obs',80)->nullable();
 			$table->timestamps();
 			
 			$table->foreign('user_id')->references('id')-> on('users');

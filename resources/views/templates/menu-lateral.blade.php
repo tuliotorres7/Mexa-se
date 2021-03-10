@@ -6,15 +6,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{route('user.index')}}">Instrutor</a>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Instrutor
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{{route('user.index')}}">Cadastro</a></li>
+            <li><a class="dropdown-item" href="{{'relatorio'}}">Relatório</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('cliente.index')}}">Cliente</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Cliente
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{{route('cliente.index')}}">Cadastro</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{'relatorio'}}">Relatorio</a>
-        </li>
+        
+        
         <li class="nav-item">
           <a class="nav-link" href="{{route('presenca.index')}}">Presença</a>
         </li>
@@ -22,16 +32,7 @@
         <li class="nav-item">
           <a class="nav-link" href="{{'relatorioPresenca'}}">Relatorio de Presença</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown link
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
+        
       </ul>
     </div>
   </div>

@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
 
 			//authentication
 			$table -> string('email',80)->unique();
-			$table -> string('telefone',14)->nullable();
+			$table -> string('cref',20)->nullable();
 			$table -> string('password',254)->nullable();
 			
 			//permission

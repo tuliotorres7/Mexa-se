@@ -31,24 +31,28 @@
 </div></div>
         <div class="row">    
         <div class="col">
-    @include('templates.formulario.input',['input' => 'CREF', 'attributes'=>['placeholder' => 'CREF']])
+    @include('templates.formulario.input',['input' => 'cref', 'attributes'=>['placeholder' => 'CREF']])
     </div>
     <div class="col">   
         @include('templates.formulario.submit',['input' => 'Cadastrar'])
 </div>
 </div>
         {!! Form::close()!!}
+        
 <div class="row">
 <div class=table-responsive-xl>
     <table class="table table-hover">
         <thead>
             <tr>
-                <td> id </td>
-                <td> CPF </td>
-                <td> Nome </td>
-                <td> Email </td>
-                <td> Status </td>
-                <td> Permissão </td>
+                <th> id </th>
+                <th> CPF </th>
+                <th> Nome </th>
+                <th> Email </th>
+                <th> CREF </th>
+                <th> Status </th>
+                <th> Permissão </th>
+
+                <th> Opção</th>
             </tr>
         </thead>
         <tbody>
@@ -58,14 +62,14 @@
                 <td>{{$user -> formattedCpf}}</td>
                 <td>{{$user -> nome}}</td>
                 <td>{{$user -> email}}</td>
+                <td>{{$user -> cref}}</td>
                 <td>{{$user -> status}}</td>
                 <td>{{$user -> permission}}</td>
                 <td>
                     {!!Form::open(['route'=> ['user.destroy',$user->id],'method' => 'DELETE'])!!}
                     {!!Form::submit('Remover')!!}
                     {!!Form::close()!!}
-
-                    </td>
+                </td>
             </tr>
             @endforeach
         </tbody>

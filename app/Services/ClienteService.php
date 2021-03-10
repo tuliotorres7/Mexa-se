@@ -21,7 +21,7 @@ class ClienteService{
 
     public function store(array $data){
         try{
-            
+            dd($data);
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $cliente = $this->repository->create($data);
 

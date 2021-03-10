@@ -31,23 +31,30 @@
         <th>#</th>
         <th>Nome do Cliente</th>
         <th>Instrutor</th>
+        <th>Telefone</th>
+        <th>Endereço</th>
+        <th>Data de Inicio</th>
+        <th>Observações</th>
         <th>Opções</th>
     </tr>
-
 </thead>
     <tbody>
-        @foreach($clientes as $clt)
+        @foreach( $clientes as $clt)
         <tr>
-            <td>{{ $clt->id}}</td>
-            <td>{{ $clt->nome}}</td>
-            <td>{{ $clt->instrutor->nome}}</td>
+            <td>{{ $clt-> id}}</td>
+            <td>{{ $clt-> nome}}</td>
+            <td>{{ $clt-> instrutor->nome}}</td>
+            <td>{{ $clt-> telefone}}</td>
+            <td>{{ $clt-> endereco}}</td>
+            <td>{{ $clt-> dataInicio}}</td>
+            <td>{{ $clt-> obs}}</td>
             <td>
                 {!! Form::open(['route'=> ['cliente.destroy',$clt->id], 'method'=>'delete']) !!}
                 {!! Form::submit("Remover")!!}
-                {!! Form::close()!!}            
+                {!! Form::close()!!}           
             </td>
         </tr>
-        @endforeach
+            @endforeach
     </tbody>
     </table>
 

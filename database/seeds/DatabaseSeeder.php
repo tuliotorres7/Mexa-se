@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
             'cpf'=> '1234',
             'nome'=>'admin',
             'email'=>'admin@admin.com',
+            'cref'=>'32998121212',
+
             'password'=> env('PASSWORD_HASH') ? bcrypt('1234'): '1234',
  ]);
 

@@ -58,7 +58,7 @@ class ClientesController extends Controller
     {
         
         $request = $this->service->store($request->all());
-        
+        //dd($request);
         $cliente = $request['success'] ? $request['data']: null;
         session()->flash('success',[
             'success'   => $request['success'],
@@ -147,13 +147,6 @@ class ClientesController extends Controller
     }
 
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int $id
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $deleted = $this->repository->delete($id);

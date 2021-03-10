@@ -29,7 +29,7 @@ class Presenca extends Model implements Transformable
 
     public function cliente()
     {
-        return $this->belongsTo(User::class,'cliente_id');
+        return $this->belongsTo(Cliente::class,'cliente_id');
     }
     
 

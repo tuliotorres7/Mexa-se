@@ -22,7 +22,7 @@ class UserService{
     
     public function store($data){
         try{
-            
+            //dd($data);
             $this->validator->with($data)->passesOrFail(ValidatorInterface::RULE_CREATE);
             $usuario = $this->repository->create($data);
             
