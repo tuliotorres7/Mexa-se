@@ -9,12 +9,19 @@
 <div class="row">        
 <div class="col">
 <label class>
-<span>Relatorio Presenca</span>
+<span>Data</span>
     <input type="date" name="data" placeholder="Data de inicio">
 </label>
 </div>
 <div class="col">
-
+<label class>
+<span>Data Final</span>
+    <input type="date" name="dataFim" placeholder="Data Final">
+</label>
+</div>
+</div>
+<div class ="row">
+<div class="col">
 <label class>
 <span>Instrutor</span>
     <select name="user_id">
@@ -25,8 +32,6 @@
     </select>
 </label>
 </div>
-</div>
-<div class="row">
 <div class="col">
 
 <label class>
@@ -39,6 +44,9 @@
     </select>
 </label>
 </div>
+
+</div>
+<div class="row">
 <div class="col">
 <label class="submit">
     <input type="submit" value="Pesquisar">

@@ -10,16 +10,38 @@
         <script src="https://kit.fontawesome.com/d80969b397.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>
         <script type="text/javascript" src="qrcode.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-       <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
     </head>
 
     <body>
       @include('templates.menu-lateral')
         <section id="view-conteudo">
             @yield('conteudo-view')
+            <video id="preview"></video>
+    <script>
+        let scanner = new Instascan.Scanner(
+            {
+                video: document.getElementById('preview')
+            }
+        );
+        scanner.addListener('scan', function(content) {
+            alert('Escaneou o conteudo: ' + content);
+            window.open(content, "_blank");
+        });
+        
+        Instascan.Camera.getCameras().then(cameras => 
+        {
+            if(cameras.length > 0){
+                scanner.start(cameras[0]);
+            } else {
+                console.error("Não existe câmera no dispositivo!");
+            }
+        });
+    </script>
+    
         </section>
         @yield('js-view')
-
         </body>
+    
 </html>

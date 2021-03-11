@@ -32,6 +32,14 @@
         <li class="nav-item">
           <a class="nav-link" href="{{'relatorioPresenca'}}">Relatorio de Presença</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{'gerarQR'}}">Gerar QR</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{{'logout'}}">Sair</a>
+        </li>
         
       </ul>
     </div>

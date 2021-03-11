@@ -88,7 +88,39 @@ class RelatorioPresencaController extends Controller
         //$dataForm['user_id'] = $user->getId();
        
         $posts=null;
-        if(isset($dataForm['data']) && isset($dataForm['user_id']) && isset($dataForm['cliente_id'])){
+        
+        
+        if(isset($dataForm['dataFim'])){
+            if(isset($dataForm['data']) && isset($dataForm['user_id']) && isset($dataForm['cliente_id']) && isset($dataForm['dataFim'])){
+                $posts = $this->repository->findWhere([['data','>',$dataForm['data']],'user_id'=>$dataForm['user_id'],'cliente_id'=>$dataForm['cliente_id'],['data', '<' , $dataForm['dataFim']]]);
+                }
+            elseif(isset($dataForm['data']) && isset($dataForm['user_id']) && isset($dataForm['cliente_id'])){
+            $posts = $this->repository->findWhere([['data','>',$dataForm['data']],'user_id'=>$dataForm['user_id'],'cliente_id'=>$dataForm['cliente_id'],['data','<',$dataForm['dataFim']]]);
+            }
+            elseif(isset($dataForm['data']) && isset($dataForm['user_id'])){
+                $posts = $this->repository->findWhere([['data','>',$dataForm['data']],'user_id'=>$dataForm['user_id'],['data','<',$dataForm['dataFim']]]);
+            }
+            elseif(isset($dataForm['data']) && isset($dataForm['cliente_id'])){
+                $posts = $this->repository->findWhere([['data','>',$dataForm['data']],'cliente_id'=>$dataForm['cliente_id'],['data','<',$dataForm['dataFim']]]);
+            }
+            elseif( isset($dataForm['user_id']) && isset($dataForm['cliente_id'])){
+            $posts = $this->repository->findWhere(['user_id'=>$dataForm['user_id'],'cliente_id'=>$dataForm['cliente_id'],['data','<',$dataForm['dataFim']]]);
+            }
+            elseif(isset($dataForm['data'])){
+                $posts = $this->repository->findWhere([['data','>',$dataForm['data']],['data','<',$dataForm['dataFim']]]);
+            }
+            elseif(isset($dataForm['user_id'])){
+                $posts = $this->repository->findWhere(['user_id'=>$dataForm['user_id'] ]);
+            }
+            elseif(isset($dataForm['cliente_id'])){
+                $posts = $this->repository->findWhere(['cliente_id'=>$dataForm['cliente_id'] ]);
+            }   
+
+        }else{
+        if(isset($dataForm['data']) && isset($dataForm['user_id']) && isset($dataForm['cliente_id']) && isset($dataForm['dataFim'])){
+            $posts = $this->repository->findWhere(['data'=>$dataForm['data'],'user_id'=>$dataForm['user_id'],'cliente_id'=>$dataForm['cliente_id'],['data', '<' , $dataForm['data']]]);
+            }
+        elseif(isset($dataForm['data']) && isset($dataForm['user_id']) && isset($dataForm['cliente_id'])){
         $posts = $this->repository->findWhere(['data'=>$dataForm['data'],'user_id'=>$dataForm['user_id'],'cliente_id'=>$dataForm['cliente_id']]);
         }
         elseif(isset($dataForm['data']) && isset($dataForm['user_id'])){
@@ -108,8 +140,8 @@ class RelatorioPresencaController extends Controller
         }
         elseif(isset($dataForm['cliente_id'])){
             $posts = $this->repository->findWhere(['cliente_id'=>$dataForm['cliente_id'] ]);
-        }
-        
+        }   
+    }
 
         
         //dd($posts);

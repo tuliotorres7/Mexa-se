@@ -15,18 +15,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', ['uses' => 'Controller@homepage']);
 Route::get('/cadastro', ['uses' => 'Controller@cadastrar']);
 
-Route::get('/login', ['uses' => 'Controller@fazerLogin']);
+Route::get('/login', ['uses' => 'Controller@fazerLogin'])->name('login');
 Route::post('/login', ['as'=> 'user.login','uses' => 'DashboardController@auth']);
+
+Route::get('/logout', ['as'=> 'user.logout','uses' => 'DashboardController@logoutAuth'])->name('logout');
+
+
 Route::get('/dashboard', ['as'=> 'user.dashboard','uses' => 'DashboardController@index']);
 
-Route::resource('user','UsersController');
-Route::resource('cliente','ClientesController');
+Route::resource('user','UsersController')->middleware('auth');
+Route::resource('cliente','ClientesController')->middleware('auth');
 
-Route::resource('/relatorio','RelatorioController');
-Route::post('relatorio','RelatorioController@searchInstrutor')->name('relatorio.search');
+Route::resource('/relatorio','RelatorioController')->middleware('auth');
+Route::post('relatorio','RelatorioController@searchInstrutor')->name('relatorio.search')->middleware('auth');
 
-Route::resource('/presenca','PresencasController');
+Route::resource('/presenca','PresencasController')->middleware('auth');
 
-Route::resource('/relatorioPresenca','RelatorioPresencaController');
-Route::post('relatorioPresenca', 'RelatorioPresencaController@searchPresenca')->name('relatorioPresenca.search');
+Route::resource('/relatorioPresenca','RelatorioPresencaController')->middleware('auth');
+Route::post('relatorioPresenca', 'RelatorioPresencaController@searchPresenca')->name('relatorioPresenca.search')->middleware('auth');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Repositories\UserRepository;
 use App\Validators\UserValidator;
+use Illuminate\Support\Facades\Auth;
 use Exception;
 
 class DashboardController extends Controller
@@ -51,4 +52,12 @@ class DashboardController extends Controller
         }
         dd($request->all());
         echo "auth method";}
+
+        public function logoutAuth(Request $request){
+            \Auth::logout();
+            return redirect()->route('login');
+ 
+            //dd($request->all());
+            echo "auth method";
+        }
 }

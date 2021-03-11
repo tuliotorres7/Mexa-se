@@ -17,14 +17,7 @@ body{
 /**
 *stylesheet para a pagina de login
 */
-div.background{
-    position: absolute;
-    left: 0;
-    width: calc(100% - 300px);/**pode dar ruim em alguns navegadores*/
-    height:100%;
-    background-image:url(../assets/images/logo1.png);
-    background-size: 100%;
-}
+
 
 .abertura-icon{
     position:relative;
