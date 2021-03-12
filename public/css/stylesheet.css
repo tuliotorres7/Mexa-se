@@ -154,6 +154,15 @@ form.form-padrao label.submit input{
 }
 
 
+form.form-padrao button{
+    background: #f7a903;
+    border-color: #f75c03;
+    font-weight: 800;
+    text-transform: uppercase;
+    line-height: 50px;
+    color: #f9f9f9;
+}
+
 form.form-padrao label.radio {
     float: left;
     width: 49%;
@@ -163,4 +172,17 @@ form.form-padrao label.radio {
     background: #fff;
     border-radius: 5px;
     margin-bottom: 20px;
+}
+
+
+.abertura-icon{
+    position:relative;
+    border-radius: 50%;
+    background-color: #1cb5e7;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+}
+.geraQr{
+    border: 1px solid;
 }

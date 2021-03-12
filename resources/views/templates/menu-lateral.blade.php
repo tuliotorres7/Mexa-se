@@ -34,7 +34,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{'gerarQR'}}">Gerar QR</a>
+          <a class="nav-link" href="{{'dashboard'}}">Gerar QR</a>
         </li>
 
         <li class="nav-item">

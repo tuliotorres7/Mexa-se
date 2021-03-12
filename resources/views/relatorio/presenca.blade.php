@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('templates.masterCam')
 
 @section('conteudo-view')
 @if(session('success'))
@@ -34,6 +34,8 @@
 </div>
 <div class="col">
 
+
+
 <label class>
 <span>Cliente</span>
     <select name="cliente_id">
@@ -63,10 +65,13 @@
         <th>#</th>
         <th>Nome do Cliente</th>
         <th>Instrutor</th>
+        <th>Dia</th>
+        <th>Hora</th>
         <th>Status</th>
         
     </tr>
 
+    <h1>Numero de Presenças: @if($presencas){{ count($presencas)}}@endif</h1>
 </thead>
 <tbody>
         @if($presencas)
@@ -76,6 +81,9 @@
             <td>{{ $prc->id}}</td>
             <td>{{ $prc->cliente->nome}}</td>
             <td>{{ $prc->instrutor->nome}}</td>
+
+            <td>{{ $prc->data}}</td>
+            <td>{{ $prc->dataHora}}</td>
             <td>
             @switch($prc->abertura)
     @case(1)
@@ -90,4 +98,5 @@
     </tbody></table>
 </div>
 </div>
+
 @endsection

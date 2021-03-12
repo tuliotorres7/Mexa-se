@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('templates.masterCam')
 
 @section('conteudo-view')
 @if(session('success'))
@@ -10,8 +10,9 @@
 <div class="col">
 <label class="">
     <span>cliente_id</span>
-    <input type="text" id="cliente_id" placeholder="ClienteID"/>
+    <input  placeholder="cliente ID" name="cliente_id" type="text" id="cliente_id" />
 </label>
+
         </div>
         <div class="col">
         @include('templates.formulario.checkbox', ['label' => 'Radio'])
@@ -20,7 +21,7 @@
         
         @include('templates.formulario.submit',['input' => 'Assinar presença'])
 
-<video id="preview"></video>
+        <video id="preview"></video>
     <script>
         let scanner = new Instascan.Scanner(
             {
@@ -28,10 +29,11 @@
             }
         );
         scanner.addListener('scan', function(content) {
-            alert('Escaneou o conteudo: ' + content);
-                            
+            //alert('Escaneou o conteudo: ' + content);
+            document.getElementById('cliente_id').value = content;
+            dd(document.getElementById('cliente_id').value);
         });
-        document.write(con);
+        
         Instascan.Camera.getCameras().then(cameras => 
         {
             if(cameras.length > 0){
@@ -41,6 +43,7 @@
             }
         });
     </script>
+    
 {!! Form::close()!!}
 
 @endsection

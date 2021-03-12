@@ -26,8 +26,16 @@
 
 @section('conteudo-view')
 
+    <div class="row">
+    <div class="col">
+    <label class="form-padrao">
+        <span id="geraQr"> ID-Cliente:</span> 
     <input type="text" id="valor" value="">
+    </label>
     <button onClick="createQrCode()">Gerar QR Code</button>
+    
+    </div>
+    </div>
     <div id="qrcode"></div>
 
 
