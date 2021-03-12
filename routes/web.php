@@ -21,7 +21,7 @@ Route::post('/login', ['as'=> 'user.login','uses' => 'DashboardController@auth']
 Route::get('/logout', ['as'=> 'user.logout','uses' => 'DashboardController@logoutAuth'])->name('logout');
 
 
-Route::get('/dashboard', ['as'=> 'user.dashboard','uses' => 'DashboardController@index']);
+Route::get('/dashboard', ['as'=> 'user.dashboard','uses' => 'DashboardController@index'])->middleware(['auth','check.is.admin']);
 
 Route::resource('user','UsersController')->middleware('auth');
 Route::resource('cliente','ClientesController')->middleware('auth');

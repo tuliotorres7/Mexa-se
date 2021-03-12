@@ -26,10 +26,6 @@
         
         
         <li class="nav-item">
-          <a class="nav-link" href="{{route('presenca.index')}}">Presença</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link" href="{{'relatorioPresenca'}}">Relatorio de Presença</a>
         </li>
 

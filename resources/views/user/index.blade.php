@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('templates.masterAdmin')
 @section('css-view')
 @endsection()
 

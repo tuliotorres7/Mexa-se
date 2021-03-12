@@ -1,4 +1,4 @@
-@extends('templates.masterCam')
+@extends('templates.masterInstrutor')
 
 @section('conteudo-view')
 @if(session('success'))

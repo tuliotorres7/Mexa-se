@@ -15,6 +15,10 @@ class CheckIsAdminMiddleware
      */
     public function handle($request, Closure $next)
     {
+        $user = auth()->user();
+        if($user->email != 'admin@admin.com'){
+            return redirect('/presenca');
+        }
         return $next($request);
     }
 }

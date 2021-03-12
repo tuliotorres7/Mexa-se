@@ -10,18 +10,16 @@
         <script src="https://kit.fontawesome.com/d80969b397.js" crossorigin="anonymous"></script>
         <script type="text/javascript" src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js" ></script>
         <script type="text/javascript" src="qrcode.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+       <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
     <body>
-      @include('templates.menu-lateral')
+      @include('templates.menuInstrutor')
         <section id="view-conteudo">
             @yield('conteudo-view')
-            
-    
         </section>
         @yield('js-view')
+
         </body>
-    
 </html>

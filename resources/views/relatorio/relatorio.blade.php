@@ -1,4 +1,4 @@
-@extends('templates.master')
+@extends('templates.masterAdmin')
 
 @section('conteudo-view')
 @if(session('success'))
