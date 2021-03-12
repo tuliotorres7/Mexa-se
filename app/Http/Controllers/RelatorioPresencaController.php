@@ -55,26 +55,36 @@ class RelatorioPresencaController extends Controller
         $cliente_list = $this->clienteRepository->selectBoxList();
         $presencas = null;
         $posts = null;
-        return view('relatorio.presenca', [
-            'presencas' => $presencas,
-            'user_list' => $user_list,
-            'cliente_list' => $cliente_list,
+        $user = Auth::user();
 
+        $data['user_id'] = $user->getId();
+        if($data['user_id'] == 1){
+        return view('relatorio.presenca', [
+            'presencas'=> $posts,
+            'user_list' => $user_list,
+            'cliente_list'=> $cliente_list,
         ]);
+        }else{
+            return view('relatorio.presencaInstrutor', [
+                'presencas'=> $posts,
+                'user_list' => $user_list,
+                'cliente_list'=> $cliente_list,
+            ]); 
+        }
     }
 
 
     public function store(PresencaCreateRequest $request)
     {
         $request = $this->service->store($request->all());
-        //dd($request);
+        dd($request);//se cair nesse dd tem q redirecionar as 2 rotas
         $presenca = $request['success'] ? $request['data']: null;
 
         session()->flash('success',[
             'success'   => $request['success'],
             'messages'  => $request['messages']
         ]);
-        
+        //redirecionar para os 2 aqui
         return redirect()->route('relatorio.presenca');
     }
 
@@ -84,9 +94,12 @@ class RelatorioPresencaController extends Controller
         $cliente_list = $this->clienteRepository->selectBoxList();   
         $dataForm = $request->all();
         //dd($dataForm);
-        //$user = Auth::user();
-        //$dataForm['user_id'] = $user->getId();
-       
+        $user = Auth::user();
+
+        if((!isset($dataForm['user_id'])) && ($user->getId() != 1)){
+        $user = Auth::user();
+        $dataForm['user_id'] = $user->getId();
+        }
         $posts=null;
         
         
@@ -146,11 +159,22 @@ class RelatorioPresencaController extends Controller
         
         //dd($posts);
         //dd(Auth::guard());
+        $user = Auth::user();
+
+        $data['user_id'] = $user->getId();
+        if($data['user_id'] == 1){
         return view('relatorio.presenca', [
             'presencas'=> $posts,
             'user_list' => $user_list,
             'cliente_list'=> $cliente_list,
         ]);
+        }else{
+            return view('relatorio.presencaInstrutor', [
+                'presencas'=> $posts,
+                'user_list' => $user_list,
+                'cliente_list'=> $cliente_list,
+            ]); 
+        }
     }
     
     public function show($id)

@@ -13,7 +13,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="{{'relatorioPresenca'}}">Relatorio de Presença</a>
+          <a class="nav-link" href="{{'relatorioPresencaInstrutor'}}">Relatorio de Presença</a>
         </li>
 
         <li class="nav-item">

@@ -43,6 +43,9 @@ class User extends Authenticatable
     public function getId(){
         return $this->attributes['id'];
     }
+    public function getEmail(){
+        return $this->attributes['email'];
+    }
 
     public function setPasswordAttribute($value){
         $this->attributes['password'] =  env('PASSWORD_HASH') ? bcrypt($value): $value;

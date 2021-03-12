@@ -34,3 +34,5 @@ Route::resource('/presenca','PresencasController')->middleware('auth');
 Route::resource('/relatorioPresenca','RelatorioPresencaController')->middleware('auth');
 Route::post('relatorioPresenca', 'RelatorioPresencaController@searchPresenca')->name('relatorioPresenca.search')->middleware('auth');
 
+
+Route::resource('/relatorioPresencaInstrutor','RelatorioPresencaController');

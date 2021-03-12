@@ -1,4 +1,4 @@
-@extends('templates.masterAdmin')
+@extends('templates.masterInstrutor')
 
 @section('conteudo-view')
 @if(session('success'))
@@ -22,19 +22,6 @@
 </div>
 <div class ="row">
 <div class="col">
-<label class>
-<span>Instrutor</span>
-    <select name="user_id">
-    <option value="">Instrutor</option>
-    @foreach( $user_list as $key => $ul)
-    <option value="{{$key}}">{{$ul}}</option>
-    @endforeach
-    </select>
-</label>
-</div>
-<div class="col">
-
-
 
 <label class>
 <span>Cliente</span>
@@ -46,9 +33,6 @@
     </select>
 </label>
 </div>
-
-</div>
-<div class="row">
 <div class="col">
 <label class="submit">
     <input type="submit" value="Pesquisar">
