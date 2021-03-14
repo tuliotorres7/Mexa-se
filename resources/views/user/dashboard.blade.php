@@ -37,7 +37,5 @@
     </div>
     </div>
     <div id="qrcode"></div>
-
-
     
 @endsection()

@@ -21,17 +21,17 @@
         
         @include('templates.formulario.submit',['input' => 'Assinar presença'])
 
-        <video id="preview"></video>
+        
+    <video id="preview"></video>
     <script>
         let scanner = new Instascan.Scanner(
             {
-                video: document.getElementById('preview')
+                video: document.getElementById('preview');
             }
         );
         scanner.addListener('scan', function(content) {
             //alert('Escaneou o conteudo: ' + content);
             document.getElementById('cliente_id').value = content;
-            dd(document.getElementById('cliente_id').value);
         });
         
         Instascan.Camera.getCameras().then(cameras => 
@@ -43,7 +43,6 @@
             }
         });
     </script>
-    
 {!! Form::close()!!}
 
 @endsection

@@ -38,7 +38,7 @@
                
             {!! Form::submit('Entrar') !!}
            
-</div>        
+</div>       
 
             {!! Form::close() !!}
             

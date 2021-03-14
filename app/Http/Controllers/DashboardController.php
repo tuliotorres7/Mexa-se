@@ -37,8 +37,9 @@ class DashboardController extends Controller
             else{
                 $user = $this->repository->findWhere(['email' => $request->get('username')])->first();
                 if(!$user)
+                {
                     throw new Exception("Email Invalido");
-
+                }
                 if($user->password != $request->get('password'))
                     throw new Exception("Senha Invalida");
 
@@ -48,7 +49,13 @@ class DashboardController extends Controller
             return redirect()->route('user.dashboard');
         }
         catch (Exception $e){
-            return $e -> getMessage();
+            $response = $e->getmessage();
+            //dd($response);
+            print($response);
+                    return redirect()
+                    ->back()
+                    ->with('error',$response);
+                    
         }
         dd($request->all());
         echo "auth method";}
