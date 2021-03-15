@@ -22,11 +22,11 @@
         @include('templates.formulario.submit',['input' => 'Assinar presença'])
 
         
-    <video id="preview"></video>
+    <video id="preview" autoplay playsinline></video>
     <script>
         let scanner = new Instascan.Scanner(
             {
-                video: document.getElementById('preview');
+                video: document.getElementById('preview') 
             }
         );
         scanner.addListener('scan', function(content) {
@@ -36,8 +36,8 @@
         
         Instascan.Camera.getCameras().then(cameras => 
         {
-            if(cameras.length > 0){
-                scanner.start(cameras[0]);
+            if(cameras.length > 0){   
+                    scanner.start(cameras[1]);
             } else {
                 console.error("Não existe câmera no dispositivo!");
             }

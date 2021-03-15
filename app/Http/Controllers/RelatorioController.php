@@ -45,7 +45,7 @@ class RelatorioController extends Controller
      */
     public function __construct(ClienteRepository $repository, ClienteValidator $validator, ClienteService $service,UserRepository $userRepository)
     {
-        $this->userRepository = $userRepository;
+        $this->userRepository = $userRepository->orderBy('nome','asc');
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->service = $service;
@@ -85,8 +85,13 @@ class RelatorioController extends Controller
     public function searchInstrutor(Request $request, Cliente $relatorio){
         $user_list = $this->userRepository->selectBoxList();       
         $dataForm = $request->all();
-        $posts = $this->repository->findByField('user_id',$dataForm['user_id']);
-        //dd($post);
+        //$posts = $this->repository->findByField('user_id',$dataForm['user_id']);
+        $posts = $this->repository->scopeQuery(function($query){
+            return $query->orderBy('nome','asc');
+          
+        })->findByField('user_id',$dataForm['user_id']);
+        //$posts = $posts-> orderBy('nome','asc');
+        //dd($posts);
         return view('relatorio.relatorio', [
             'clientes'=> $posts,
             'user_list' => $user_list,

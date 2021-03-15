@@ -40,8 +40,8 @@ class RelatorioPresencaController extends Controller
 
     public function __construct(PresencaRepository $repository, PresencaValidator $validator, PresencaService $service,UserRepository $userRepository,ClienteRepository $clienteRepository)
     {
-        $this->userRepository = $userRepository;
-        $this->clienteRepository = $clienteRepository;
+        $this->userRepository = $userRepository->orderBy('nome','asc');
+        $this->clienteRepository = $clienteRepository->orderBy('nome','asc');
         $this->repository = $repository;
         $this->validator  = $validator;
         $this->service = $service;
