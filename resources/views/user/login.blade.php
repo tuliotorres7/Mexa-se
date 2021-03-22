@@ -10,11 +10,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-
-        <section id="conteudo-view">
-        {!! Form::open(['route' => 'user.login','method'=>'post'])  !!}
+    <section id="conteudo-view" class="container-fluid">
+        
+    {!! Form::open(['route' => 'user.login','method'=>'post'])  !!}
             
-        <div class="row">
+        <div class="row " >
+        <div class="col"></div>
                 <div class="col">
             
             <h1> Mexa-se</h1>
@@ -22,22 +23,39 @@
 
             <p>Acesse o sistema</p>
         </div>
+        <div class="col"></div>
         </div>
         <div class="row">
+            
+        <div class="col"></div>
+
+        <div class="col">
             <label class="">
             <input placeholder="Nome" name="username" type="text">                  
             </label>
         </div>
-<div class="row">
-            <label class="">
-            
-            {!! Form::password('password', ['placeholder' => 'Senha'])!!}
-</label>
+
+        <div class="col"></div>
         </div>
 <div class="row">
-               
+
+<div class="col"></div>
+
+<div class="col">
+            <label class="">
+            {!! Form::password('password', ['placeholder' => 'Senha'])!!}
+</label>
+</div>
+<div class="col"></div>
+        </div>
+<div class="row">
+
+<div class="col"></div>
+        <div class="col">
             {!! Form::submit('Entrar') !!}
-           
+        </div>
+
+<div class="col"></div>
 </div>       
 
             {!! Form::close() !!}

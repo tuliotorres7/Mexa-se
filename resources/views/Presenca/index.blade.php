@@ -10,7 +10,7 @@
 <div class="col">
 <label class="">
     <span>cliente_id</span>
-    <input  placeholder="cliente ID" name="cliente_id" type="text" id="cliente_id" />
+    <input  placeholder="cliente ID" name="cliente_id" type="password" id="cliente_id" />
 </label>
 
         </div>
