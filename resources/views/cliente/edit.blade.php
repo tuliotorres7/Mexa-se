@@ -63,23 +63,20 @@
     </tr>
 </thead>
     <tbody>
-        @foreach( $clientes as $clt)
         <tr>
-            <td>{{ $clt-> id}}</td>
-            <td>{{ $clt-> nome}}</td>
-            <td>{{ $clt-> instrutor->nome}}</td>
-            <td>{{ $clt-> telefone}}</td>
-            <td>{{ $clt-> endereco}}</td>
-            <td>{{ $clt-> dataInicio}}</td>
-            <td>{{ $clt-> obs}}</td>
-            <td>
-                {!! Form::open(['route'=> ['cliente.destroy',$clt->id], 'method'=>'delete']) !!}
+            <td>{{ $clientes-> nome}}</td>
+            <td>{{ $clientes-> instrutor->nome}}</td>
+            <td>{{ $clientes-> telefone}}</td>
+            <td>{{ $clientes-> endereco}}</td>
+            <td>{{ $clientes-> dataInicio}}</td>
+            <td>{{ $clientes-> obs}}</td>       
+        </tr>
+        <td>
+                {!! Form::model($user['route'=> ['cliente.destroy',$clt->id], 'method'=>'delete']) !!}
                 {!! Form::submit("Remover")!!}
                 {!! Form::close()!!} 
                 <a href="{{route('cliente.edit', $clt->id)}}">Editar</a>          
             </td>
-        </tr>
-            @endforeach
     </tbody>
     </table>
 </div>

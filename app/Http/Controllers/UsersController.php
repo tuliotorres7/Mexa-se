@@ -49,6 +49,10 @@ class UsersController extends Controller
         ]);
     }
 
+    public function geraQr(){
+        return view('qr.index');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

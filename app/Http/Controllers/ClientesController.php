@@ -99,8 +99,12 @@ class ClientesController extends Controller
     public function edit($id)
     {
         $cliente = $this->repository->find($id);
-
-        return view('clientes.edit', compact('cliente'));
+        $user_list = $this->userRepository->selectBoxList();
+       
+        return view('cliente.edit', [
+            'clientes' => $cliente,
+            'user_list' => $user_list,
+        ]);
     }
 
     /**
