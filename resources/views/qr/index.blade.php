@@ -7,7 +7,7 @@
 
 <script>
     function createQrCode()
-    {        
+    {
         var userInput = document.getElementById('valor').value;
 
         var qrcode = new QRCode("qrcode", {
@@ -25,12 +25,15 @@
 @section('conteudo-view')
 <div class="row">
     <div class="col">
-    <label class="form-padrao">
         <span id="geraQr"> ID-Cliente:</span> 
-    <input type="text" id="valor" value="">
-    </label>
-    <button onClick="createQrCode()">Gerar QR Code</button>    
-    
+
+    <div class="input-group mb-3">
+        <input type="text" id="valor" class="form-control" placeholder="ID-Cliente" aria-label="Recipient's username" aria-describedby="basic-addon2">
+        </div>
+
+    <button type="button" class="btn btn-warning" onClick="createQrCode()" >Gerar QR Code</button>
+
+    <button type="button" class="btn btn-outline-secondary" onClick="window.location.reload()">Limpar QR</button>
     </div>
     </div>
     <div id="qrcode"></div>
